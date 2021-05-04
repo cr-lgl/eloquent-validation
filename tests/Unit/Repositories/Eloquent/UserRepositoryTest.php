@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests\Unit\Repositories\Eloquent;
 
 use App\Models\User;
-use App\Repositories\Eloquent\UserRepository;
+use App\Repositories\Eloquent\EloquentUserRepository;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Prettus\Validator\Exceptions\ValidatorException;
@@ -20,7 +20,7 @@ class UserRepositoryTest extends TestCase
      */
     public function it_will_throw_validator_exception(): void
     {
-        $repository = resolve(UserRepository::class);
+        $repository = resolve(EloquentUserRepository::class);
 
         $user = User::factory()->makeOne([
             'name' => Str::random(256),
